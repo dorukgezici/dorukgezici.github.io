@@ -20,6 +20,7 @@ export default function BusinessCard() {
       <h2 className={styles.title}>Full Stack Developer &amp; Entrepreneur</h2>
       <div className={styles.about}>
         <p>
+          <a href="/">DGtech</a>,&nbsp;
           <a href="https://udext.com" target="_blank">Udext</a>,&nbsp;
           <a href="https://gamerarena.com" target="_blank">Gamer Arena</a>,&nbsp;
           <a href="https://ituscheduler.com" target="_blank">ITUscheduler</a>
