@@ -10,11 +10,22 @@ export default function App() {
         <BusinessCard/>
       </section>
 
-      <section className="flex justify-center items-center my-20 columns-2 gap-8">
-        <div className="w-1/3">
-          <img src="/img/dg-girvak.jpg" alt="Doruk Gezici" className="rounded-xl"/>
+      <section className="flex flex-col lg:flex-row justify-center items-center my-20 gap-8">
+        <div className={classNames(styles.card)}>
+          <div className={styles.cardInner}>
+            <div className={styles.cardFront}>
+              <img src="/img/dg.jpg" alt="Doruk Gezici" width={512} height={512} className="rounded-xl"/>
+            </div>
+            <div className={styles.cardBack}>
+              <iframe
+                width="100%" height="512" allow="autoplay"
+                src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/dorukgezici&color=%232a0c12&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
+              ></iframe>
+            </div>
+          </div>
         </div>
-        <div className="w-1/3 text-lg">
+
+        <div className="w-2/3 lg:w-1/3 text-lg">
           <h1 className="text-6xl font-extrabold mb-4">Who.is</h1>
           <h2 className="text-3xl mb-8">Doruk Gezici</h2>
           <p className="mb-4">
