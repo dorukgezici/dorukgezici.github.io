@@ -15,7 +15,7 @@ import styles from './BusinessCard.module.scss';
 
 export default function BusinessCard() {
   return (
-    <div className={styles.card}>
+    <div className={classNames(styles.card, 'w-11/12', 'sm:w-10/12', 'md:w-9/12', 'lg:w-8/12', 'xl:w-[800px]')}>
       <h1 className={styles.name}>Doruk Gezici</h1>
       <h2 className={styles.title}>Full Stack Developer &amp; Entrepreneur</h2>
       <div className={styles.about}>

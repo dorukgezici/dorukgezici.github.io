@@ -10,7 +10,7 @@ export default function App() {
         <BusinessCard/>
       </section>
 
-      <section className="flex flex-col lg:flex-row justify-center items-center my-20 gap-8">
+      <section className="flex flex-col lg:flex-row justify-center items-center sm:my-20 gap-8">
         <div className={classNames(styles.card)}>
           <div className={styles.cardInner}>
             <div className={styles.cardFront}>
