@@ -6,15 +6,15 @@ import styles from './App.module.scss';
 export default function App() {
   return (
     <div className="overflow-hidden">
-      <section className={classNames(styles.bgImg, 'min-h-screen flex justify-center items-center')}>
+      <section className={classNames(styles.bgImg, 'min-h-screen max-h-screen flex justify-center items-center')}>
         <BusinessCard/>
       </section>
 
-      <section className="flex flex-col lg:flex-row justify-center items-center sm:my-20 gap-8">
-        <div className={classNames(styles.card)}>
+      <section className="flex flex-wrap justify-center items-center sm:my-20 gap-8">
+        <div className={classNames(styles.card, 'w-11/12 h-[96vw]', 'sm:w-[512px] sm:h-[512px]')}>
           <div className={styles.cardInner}>
             <div className={styles.cardFront}>
-              <img src="/img/dg.jpg" alt="Doruk Gezici" width={512} height={512} className="rounded-xl"/>
+              <img src="/img/dg.jpg" alt="Doruk Gezici" className="rounded-xl"/>
             </div>
             <div className={styles.cardBack}>
               <iframe

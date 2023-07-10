@@ -7,8 +7,6 @@
   box-shadow: 0 2px 4px 0 rgba(136, 144, 195, .2), 0 5px 15px 0 rgba(37, 44, 97, .15);
 
   .name {
-    font-size: 5rem;
-    line-height: 1.45;
     color: #ffffffff;
     text-align: center;
     text-shadow: 0.01em 0.02em 0.05em #ffffff00;
@@ -16,8 +14,6 @@
   }
 
   .title {
-    font-size: 1.55rem;
-    line-height: 1.5;
     text-align: center;
     color: rgb(255, 255, 255);
     font-weight: 400;
@@ -25,8 +21,6 @@
   }
 
   .about {
-    font-size: 1.2rem;
-    line-height: 1.8;
     color: #9f9f9fff;
     text-align: center;
     font-weight: 400;
@@ -38,7 +32,6 @@
   }
 
   .social {
-    font-size: 2rem;
     text-align: center;
     justify-content: center;
     color: #ffffffff;

@@ -15,10 +15,14 @@ import styles from './BusinessCard.module.scss';
 
 export default function BusinessCard() {
   return (
-    <div className={classNames(styles.card, 'w-11/12 h-2/3', 'sm:w-10/12', 'md:w-9/12', 'lg:w-8/12', 'xl:w-[800px]')}>
-      <h1 className={styles.name}>Doruk Gezici</h1>
-      <h2 className={classNames(styles.title, 'my-5')}>Full Stack Developer &amp; Entrepreneur</h2>
-      <div className={styles.about}>
+    <div className={classNames(styles.card, 'w-11/12 sm:w-10/12 md:w-9/12 lg:w-8/12 xl:w-[800px]')}>
+      <h1 className={classNames(styles.name, 'leading-tight', 'text-6xl md:text-8xl')}>
+        Doruk Gezici
+      </h1>
+      <h2 className={classNames(styles.title, 'my-5 sm:my-10', 'leading-tight', 'text-2xl md:text-4xl')}>
+        Full Stack Developer &amp; Entrepreneur
+      </h2>
+      <div className={classNames(styles.about, 'text-xl md:text-2xl')}>
         <p>
           <a href="/">DGtech</a>,&nbsp;
           <a href="https://udext.com" target="_blank">Udext</a>,&nbsp;
@@ -30,12 +34,16 @@ export default function BusinessCard() {
             <FontAwesomeIcon icon={faEnvelope} className="mr-2"/>Contact Me
           </a>
           <a href="https://calendly.com/dorukgezici/30min" className="c2a-btn" target="_blank">
-            <FontAwesomeIcon icon={faCalendar} className="mr-2"/>Book a Meeting
+            <FontAwesomeIcon icon={faCalendar} className="mr-2"/>Book Meeting
           </a>
         </div>
       </div>
 
-      <div className={classNames(styles.social, 'flex', 'flex-wrap', 'gap-4', 'sm:gap-8', 'md:gap-12', 'lg:gap-14')}>
+      <div className={classNames(styles.social,
+        'flex flex-wrap',
+        'gap-4 sm:gap-8 md:gap-12 lg:gap-14',
+        'text-3xl sm:text-4xl',
+      )}>
         <a href="https://linkedin.com/in/dorukgezici" target="_blank">
           <FontAwesomeIcon icon={faLinkedinIn} className={styles.icon}/>
         </a>
