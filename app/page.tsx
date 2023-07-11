@@ -1,4 +1,7 @@
+import Link from 'next/link';
 import classNames from 'classnames';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faQuestion } from '@fortawesome/free-solid-svg-icons';
 import BusinessCard from '@/components/BusinessCard';
 import FlipCard from '@/components/FlipCard';
 import styles from './styles.module.scss';
@@ -15,7 +18,9 @@ export default function Home() {
         <FlipCard className="w-11/12 h-[96vw] sm:w-[512px] sm:h-[512px]"/>
 
         <div className="w-2/3 lg:w-1/3 text-lg">
-          <h1 className="text-6xl font-extrabold mb-4">Who.is</h1>
+          <h1 className="text-6xl font-extrabold mb-4">
+            Who.is <FontAwesomeIcon icon={faQuestion} shake={true}></FontAwesomeIcon>
+          </h1>
           <h2 className="text-3xl mb-8">Doruk Gezici</h2>
           <p className="mb-4">
             A curious hacker who is passionate about software, blockchain, innovation, entrepreneurship and leadership.
@@ -27,11 +32,11 @@ export default function Home() {
           <p className="mb-4">
             Prefers tech stack choices like Python, Django, FastAPI, Go, Docker, AWS, PostgreSQL, Kubernetes,
             Rancher, Celery, RabbitMQ, Redis, NextJS, React, VueJS, Tailwind, Bootstrap, Firebase, Sentry, GitHub
-            Actions, Hotjar, Cloudflare, Google Data Studio, Trello, Slack...
+            Actions, Hotjar, Cloudflare, Google Data Studio, Trello, Notion, Slack...
           </p>
           <p>
-            Also loves to play and record some jams and songs which you can check out at <a
-            href="https://soundcloud.com/dorukgezici">soundcloud.com</a>.
+            <span>Also loves to play and record some jams and songs which you can check out at </span>
+            <Link href="https://soundcloud.com/dorukgezici" target="_blank" className="underline">soundcloud.com</Link>.
           </p>
         </div>
       </section>
