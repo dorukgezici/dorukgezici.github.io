@@ -36,7 +36,7 @@ export default async function MediumFeed({ className }: { className: string }) {
           <h4 className="text-xl my-4 text-neutral-300">{new Date(item.pubDate).toLocaleDateString()}</h4>
           <h4 className="text-md my-4 flex flex-wrap justify-center gap-2 text-neutral-300">
             {item.categories?.map(category => (
-              <span className={styles.category}>#{category} </span>
+              <span key={category} className={styles.category}>#{category} </span>
             ))}
           </h4>
 
