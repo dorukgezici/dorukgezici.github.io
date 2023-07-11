@@ -1,6 +1,7 @@
 import React from 'react';
 import type { Metadata } from 'next';
 import { Lato } from 'next/font/google';
+import classNames from 'classnames';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import '@/styles/globals.scss';
 
@@ -20,7 +21,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-    <body className={font.className}>
+    <body className={classNames(font.className, 'text-neutral-400 bg-neutral-900')}>
     {children}
     <footer className="flex justify-center my-10">© 2023 | DGtech</footer>
     </body>

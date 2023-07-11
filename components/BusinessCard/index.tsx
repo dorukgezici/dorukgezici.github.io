@@ -15,11 +15,11 @@ import styles from './styles.module.scss';
 
 export default function BusinessCard({ className }: { className: string }) {
   return (
-    <div className={classNames(styles.card, className)}>
-      <h1 className="font-extrabold text-6xl md:text-8xl">Doruk Gezici</h1>
-      <h2 className="my-5 sm:my-10 text-2xl md:text-4xl">Full Stack Developer &amp; Entrepreneur</h2>
+    <div className={classNames(styles.card, className, 'bg-neutral-900')}>
+      <h1 className="font-extrabold text-6xl md:text-8xl text-neutral-200">Doruk Gezici</h1>
+      <h2 className="my-5 sm:my-10 text-2xl md:text-4xl text-neutral-300">Full Stack Developer &amp; Entrepreneur</h2>
 
-      <p className="text-gray-400 text-xl md:text-2xl">
+      <p className="text-xl md:text-2xl">
         <Link href="/">DGtech</Link>,&nbsp;
         <Link href="https://udext.com" target="_blank">Udext</Link>,&nbsp;
         <Link href="https://gamerarena.com" target="_blank">Gamer Arena</Link>,&nbsp;
@@ -28,7 +28,7 @@ export default function BusinessCard({ className }: { className: string }) {
 
       <div className={classNames(styles.actions,
         'flex flex-wrap justify-center items-center',
-        'gap-5 my-5 sm:my-10',
+        'gap-5 my-5 sm:my-10 text-neutral-200',
       )}>
         <Link href="mailto:doruk@gezici.me" target="_blank">
           <FontAwesomeIcon icon={faEnvelope} className="mr-2"/>Contact Me
@@ -41,7 +41,7 @@ export default function BusinessCard({ className }: { className: string }) {
       <div className={classNames(styles.social,
         'flex flex-wrap justify-center mt-5 sm:mt-10',
         'gap-4 sm:gap-8 md:gap-12 lg:gap-14',
-        'text-3xl sm:text-4xl',
+        'text-3xl sm:text-4xl text-neutral-300',
       )}>
         <Link href="https://linkedin.com/in/dorukgezici" target="_blank">
           <FontAwesomeIcon icon={faLinkedinIn}/>

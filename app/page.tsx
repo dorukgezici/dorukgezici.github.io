@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faQuestion } from '@fortawesome/free-solid-svg-icons';
 import BusinessCard from '@/components/BusinessCard';
 import FlipCard from '@/components/FlipCard';
+import MediumFeed from '@/components/MediumFeed';
 import styles from './styles.module.scss';
 
 
@@ -14,14 +15,14 @@ export default function Home() {
         <BusinessCard className="w-11/12 sm:w-10/12 md:w-9/12 lg:w-8/12 xl:w-[900px]"/>
       </section>
 
-      <section className="flex flex-wrap justify-center items-center sm:my-20 gap-8">
+      <section className="flex flex-wrap justify-center items-center mb-20 sm:mt-20 gap-8">
         <FlipCard className="w-11/12 h-[96vw] sm:w-[512px] sm:h-[512px]"/>
 
         <div className="w-2/3 lg:w-1/3 text-lg">
-          <h1 className="text-6xl font-extrabold mb-4">
+          <h1 className="text-6xl font-extrabold mb-4 text-neutral-200">
             Who.is <FontAwesomeIcon icon={faQuestion} shake={true}></FontAwesomeIcon>
           </h1>
-          <h2 className="text-3xl mb-8">Doruk Gezici</h2>
+          <h2 className="text-3xl mb-8 text-neutral-300">Doruk Gezici</h2>
           <p className="mb-4">
             A curious hacker who is passionate about software, blockchain, innovation, entrepreneurship and leadership.
           </p>
@@ -39,6 +40,11 @@ export default function Home() {
             <Link href="https://soundcloud.com/dorukgezici" target="_blank" className="underline">soundcloud.com</Link>.
           </p>
         </div>
+      </section>
+
+      <section className="w-full text-center">
+        <h1 className="text-6xl font-extrabold my-20 text-neutral-200">Blogs</h1>
+        <MediumFeed className="flex flex-wrap justify-center items-center gap-4"/>
       </section>
     </main>
   );
