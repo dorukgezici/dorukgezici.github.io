@@ -4,7 +4,7 @@ import { Lato } from 'next/font/google';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import '@/styles/globals.scss';
 
-const font = Lato({ weight: '400' });
+const font = Lato({ weight: '400', subsets: ['latin-ext'] });
 
 export const metadata: Metadata = {
   title: 'Doruk Gezici | DGtech',
