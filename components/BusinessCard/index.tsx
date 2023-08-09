@@ -17,7 +17,7 @@ export default function BusinessCard({ className }: { className: string }) {
   return (
     <div className={classNames(styles.card, className, 'bg-neutral-900')}>
       <h1 className="font-extrabold text-6xl md:text-8xl text-neutral-200">Doruk Gezici</h1>
-      <h2 className="my-5 sm:my-10 text-2xl md:text-4xl text-neutral-300">Full Stack Developer &amp; Entrepreneur</h2>
+      <h2 className="my-5 sm:my-10 text-2xl md:text-4xl text-neutral-300">Backend &amp; DevOps Engineer</h2>
 
       <p className="text-xl md:text-2xl">
         <Link href="/">DGtech</Link>,&nbsp;
