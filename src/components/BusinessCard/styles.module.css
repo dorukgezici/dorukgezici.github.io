@@ -7,21 +7,21 @@
   font-weight: 400;
 }
 
-.actions > a {
+.actions a {
   padding: 1em 3em;
   border: 1px solid;
   border-radius: 0.5rem;
   transition: all 0.25s;
 }
 
-.actions > a:hover {
+.actions a:hover {
   transform: translateY(-2px);
 }
 
-.social > a > svg {
+.social svg {
   transition: all 0.25s;
 }
 
-.social > a > svg:hover {
+.social svg:hover {
   transform: scale(1.2);
 }

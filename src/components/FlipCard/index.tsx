@@ -6,13 +6,7 @@ export default function FlipCard({ className }: { className: string }) {
     <div className={classNames(styles.card, className)}>
       <div className={styles.cardInner}>
         <div className={styles.cardFront}>
-          <img
-            src="/img/dg.jpg"
-            alt="Doruk Gezici"
-            width={512}
-            height={512}
-            className="rounded-xl"
-          />
+          <img src="/img/dg.jpg" alt="Doruk Gezici" width={512} height={512} className="rounded-xl" />
         </div>
         <div className={styles.cardBack}>
           <iframe

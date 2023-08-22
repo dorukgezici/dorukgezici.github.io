@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import parse, { Element } from "html-react-parser";
 import Parser from "rss-parser";
-import styles from "./styles.module.scss";
+import styles from "./styles.module.css";
 
 type RSSFeed = { title: string };
 type RSSItem = {
@@ -38,9 +38,7 @@ export default function MediumFeed({ className }: { className: string }) {
           </div>
 
           <h2 className="text-4xl my-4 text-neutral-200">{item.title}</h2>
-          <h4 className="text-xl my-4 text-neutral-300">
-            {new Date(item.pubDate).toLocaleDateString()}
-          </h4>
+          <h4 className="text-xl my-4 text-neutral-300">{new Date(item.pubDate).toLocaleDateString()}</h4>
           <h4 className="text-md my-4 flex flex-wrap justify-center gap-2 text-neutral-300">
             {item.categories?.map((category) => (
               <span key={category} className={styles.category}>
