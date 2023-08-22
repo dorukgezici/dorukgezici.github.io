@@ -1,0 +1,46 @@
+---
+import "@fontsource/lato";
+import '@fortawesome/fontawesome-svg-core/styles.css';
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="Check out the portfolio of Doruk Gezici, Full Stack Developer & Entrepreneur."
+    />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body class="text-neutral-400 bg-neutral-900">
+    <slot />
+    <footer class="flex justify-center my-10">© 2023 | DGtech</footer>
+
+    <!-- Google Tag Manager -->
+    {process.env.NODE_ENV === "production" && (
+      <script async id="google-tag-manager">
+        (function (w, d, s, l, i) {
+          w[l] = w[l] || [];
+          w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+          var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s),
+            dl = l != "dataLayer" ? "&l=" + l : "";
+          j.async = true;
+          j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+          f.parentNode.insertBefore(j, f);
+        })(window, document, "script", "dataLayer", "GTM-5J976B");
+      </script>
+    )}
+  </body>
+</html>
