@@ -1,0 +1,55 @@
+---
+import classNames from "classnames";
+
+interface Props {
+  className: string;
+}
+
+const { className } = Astro.props;
+---
+
+<div class={classNames(className, "card")}>
+  <div class="cardInner">
+    <div class="cardFront">
+      <img src="/img/dg.jpg" alt="Doruk Gezici" width={512} height={512} class="rounded-xl" />
+    </div>
+    <div class="cardBack">
+      <iframe
+        width="100%"
+        height="512"
+        allow="autoplay"
+        src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/dorukgezici&color=%232a0c12&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
+      ></iframe>
+    </div>
+  </div>
+</div>
+
+<style>
+  .card {
+    perspective: 1000px;
+  }
+
+  .cardInner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+  }
+
+  .cardFront,
+  .cardBack {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+  }
+
+  .cardBack {
+    transform: rotateY(180deg);
+  }
+
+  .card:hover .cardInner {
+    transform: rotateY(180deg);
+  }
+</style>
