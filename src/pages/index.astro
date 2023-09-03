@@ -1,55 +1,16 @@
 ---
-import { faQuestion } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import BusinessCard from "../components/BusinessCard.astro";
-import FlipCard from "../components/FlipCard.astro";
-import MediumFeed from "../components/MediumFeed";
-import Layout from "../layouts/Layout.astro";
+import AboutSection from "@/components/AboutSection.astro";
+import BlogsSection from "@/components/BlogsSection.astro";
+import HeroSection from "@/components/HeroSection.astro";
+import ProjectsSection from "@/components/ProjectsSection";
+import Layout from "@/layouts/Layout.astro";
 ---
 
 <Layout title="Doruk Gezici | DGtech">
-  <main class="overflow-hidden">
-    <section class="bg-img min-h-screen max-h-screen flex justify-center items-center">
-      <BusinessCard className="w-11/12 sm:w-10/12 md:w-9/12 lg:w-8/12 xl:w-[900px]" />
-    </section>
-
-    <section class="flex flex-wrap justify-center items-center mb-20 sm:mt-20 gap-8">
-      <FlipCard className="w-11/12 h-[96vw] sm:w-[512px] sm:h-[512px]" />
-
-      <div class="w-2/3 lg:w-1/3 text-lg">
-        <h1 class="text-6xl font-extrabold mb-4 text-neutral-200">
-          Who.is <FontAwesomeIcon icon={faQuestion} shake={true} />
-        </h1>
-        <h2 class="text-3xl mb-8 text-neutral-300">Doruk Gezici</h2>
-        <p class="mb-4">A curious hacker who is passionate about software, automation and entrepreneurship.</p>
-        <p class="mb-4">
-          Experienced in product management, web development and architecture, DevOps, IoT and iOS apps. Interested in
-          making everything more efficient, autonomous and smart.
-        </p>
-        <p class="mb-4">
-          Prefers tech stack choices like Python, FastAPI, Django, Go, Docker, AWS, PostgreSQL, Kubernetes, Rancher,
-          Celery, RabbitMQ, Redis, NextJS, React, Svelte, Astro, Tailwind, Firebase, Sentry, GitHub Actions, Hotjar,
-          Cloudflare, Google Data Studio, Notion, Slack...
-        </p>
-        <p>
-          <span> Also loves to play and record some jams and songs which you can check out at</span>
-          <a href="https://soundcloud.com/dorukgezici" target="_blank" class="underline"> soundcloud.com</a>.
-        </p>
-      </div>
-    </section>
-
-    <section class="w-full text-center">
-      <h1 class="text-6xl font-extrabold my-20 text-neutral-200">Blogs</h1>
-      <MediumFeed className="flex flex-wrap justify-center items-center gap-4" />
-    </section>
+  <main class="flex flex-col gap-20">
+    <HeroSection />
+    <AboutSection />
+    <ProjectsSection client:load />
+    <BlogsSection />
   </main>
 </Layout>
-
-<style>
-  .bg-img {
-    background-image: url("/img/mountains-bg.jpg");
-    background-repeat: no-repeat;
-    background-position: 50%;
-    background-size: cover;
-  }
-</style>

@@ -1,0 +1,25 @@
+---
+import BusinessCard from "@/components/BusinessCard.astro";
+import { motion } from "framer-motion";
+---
+
+<section class="bg-img min-h-screen max-h-screen flex justify-center items-center">
+  <motion.div
+    initial={{ opacity: 0, scale: 0.5 }}
+    animate={{ opacity: 1, scale: 1 }}
+    transition={{ duration: 0.5 }}
+    className="w-11/12 sm:w-10/12 md:w-9/12 lg:w-8/12 xl:w-[900px]"
+    client:load
+  >
+    <BusinessCard />
+  </motion.div>
+</section>
+
+<style>
+  .bg-img {
+    background-image: url("/img/mountains-bg.jpg");
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size: cover;
+  }
+</style>

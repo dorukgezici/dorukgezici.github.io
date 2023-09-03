@@ -1,0 +1,30 @@
+---
+import FlipCard from "@/components/FlipCard.astro";
+import { faQuestion } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+---
+
+<section class="flex flex-wrap justify-center items-center gap-8">
+  <FlipCard className="w-11/12 h-[96vw] sm:w-[512px] sm:h-[512px]" />
+
+  <div class="w-2/3 lg:w-1/3 text-lg">
+    <h1 class="text-6xl font-extrabold mb-4 text-neutral-200">
+      Who.is <FontAwesomeIcon icon={faQuestion} shake={true} />
+    </h1>
+    <h2 class="text-3xl mb-8 text-neutral-300">Doruk Gezici</h2>
+    <p class="mb-4">A curious hacker who is passionate about software, automation and entrepreneurship.</p>
+    <p class="mb-4">
+      Experienced in product management, web development and architecture, DevOps, IoT and iOS apps. Interested in
+      making everything more efficient, autonomous and smart.
+    </p>
+    <p class="mb-4">
+      Prefers tech stack choices like Python, FastAPI, Django, Go, Docker, AWS, PostgreSQL, Kubernetes, Rancher, Celery,
+      RabbitMQ, Redis, NextJS, React, Svelte, Astro, Tailwind, Firebase, Sentry, GitHub Actions, Hotjar, Cloudflare,
+      Google Data Studio, Notion, Slack...
+    </p>
+    <p>
+      <span> Also loves to play and record some jams and songs which you can check out at</span>
+      <a href="https://soundcloud.com/dorukgezici" target="_blank" class="underline"> soundcloud.com</a>.
+    </p>
+  </div>
+</section>
