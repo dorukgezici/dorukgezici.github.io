@@ -10,6 +10,7 @@ import {
 import { faCalendar, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import classNames from "classnames";
+import { TypeAnimation } from "react-type-animation";
 import ContraBadge from "./ContraBadge.astro";
 
 interface Props {
@@ -21,7 +22,15 @@ const { className } = Astro.props;
 
 <div class={classNames(className, "card bg-neutral-900")}>
   <h1 class="font-extrabold text-6xl md:text-8xl text-neutral-200">Doruk Gezici</h1>
-  <h2 class="my-5 sm:my-10 text-2xl md:text-4xl text-neutral-300">Backend &amp; DevOps Engineer</h2>
+  <h2 class="my-5 sm:my-10 text-2xl md:text-4xl text-neutral-300">
+    <TypeAnimation
+      sequence={["Backend & DevOps Engineer", 1000, "Tech Entrepreneur", 1000, "Full Stack Engineer", 1000]}
+      wrapper="span"
+      speed={50}
+      repeat={Infinity}
+      client:load
+    />
+  </h2>
 
   <p class="text-xl md:text-2xl">
     <a href="/">DGtech,</a>
@@ -33,11 +42,11 @@ const { className } = Astro.props;
   <div class="actions flex flex-wrap justify-center items-center gap-5 my-5 sm:my-10 text-neutral-200">
     <a href="mailto:doruk@gezici.me" target="_blank">
       <FontAwesomeIcon icon={faEnvelope} className="mr-2" />
-      Contact Me
+       Contact Me
     </a>
     <a href="https://calendly.com/dorukgezici/30min" target="_blank">
       <FontAwesomeIcon icon={faCalendar} className="mr-2" />
-      Book Meeting
+       Book Meeting
     </a>
     <ContraBadge />
   </div>

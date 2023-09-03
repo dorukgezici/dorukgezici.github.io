@@ -10,5 +10,5 @@ export default defineConfig({
   site: "https://doruk.gezici.me",
   integrations: [tailwind(), react(), sitemap()],
   output: "server",
-  adapter: vercel(),
+  adapter: vercel({ functionPerRoute: false }),
 });
