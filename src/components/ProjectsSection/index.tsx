@@ -37,7 +37,7 @@ const projectsData = [
     description: "Istanbul Technical University course crawler & scheduler",
     image: "/img/projects/ituscheduler.webp",
     tag: ["All", "Web"],
-    gitUrl: "https://github.com/dorukgezici/ituscheduler-go",
+    gitUrl: "https://github.com/dorukgezici/ituscheduler",
     previewUrl: "https://ituscheduler.com",
   },
   {
