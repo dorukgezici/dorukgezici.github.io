@@ -1,14 +1,16 @@
+import vercel from "@astrojs/vercel";
 import react from "@astrojs/react";
-import tailwind from "@astrojs/tailwind";
-import vercel from "@astrojs/vercel/serverless";
-import { defineConfig } from "astro/config";
-
 import sitemap from "@astrojs/sitemap";
+import tailwindcss from "@tailwindcss/vite";
+import { defineConfig } from "astro/config";
 
 // https://astro.build/config
 export default defineConfig({
   site: "https://doruk.gezici.me",
-  integrations: [tailwind(), react(), sitemap()],
   output: "server",
-  adapter: vercel({ functionPerRoute: false }),
+  adapter: vercel({ webAnalytics: { enabled: true } }),
+  integrations: [react(), sitemap()],
+  vite: {
+    plugins: [tailwindcss()],
+  },
 });
