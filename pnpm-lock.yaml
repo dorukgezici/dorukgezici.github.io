@@ -32,6 +32,9 @@ importers:
       '@fortawesome/react-fontawesome':
         specifier: ^0.2.2
         version: 0.2.2(@fortawesome/fontawesome-svg-core@6.7.2)(react@19.0.0)
+      '@vercel/analytics':
+        specifier: ^1.4.1
+        version: 1.4.1(react@19.0.0)
       astro:
         specifier: ^5.1.9
         version: 5.1.9(jiti@2.4.2)(lightningcss@1.29.1)(rollup@4.32.0)(typescript@5.7.2)(yaml@2.7.0)
