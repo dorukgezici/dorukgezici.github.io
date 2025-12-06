@@ -1,13 +1,13 @@
-import { faCode, faEye } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCode, faEye } from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 type Props = {
-  imgUrl: string;
-  title: string;
-  description: string;
-  gitUrl: string;
-  previewUrl: string;
-};
+  imgUrl: string
+  title: string
+  description: string
+  gitUrl: string
+  previewUrl: string
+}
 
 export default function ProjectCard({ imgUrl, title, description, gitUrl, previewUrl }: Props) {
   return (
@@ -44,5 +44,5 @@ export default function ProjectCard({ imgUrl, title, description, gitUrl, previe
         <p className="text-[#ADB7BE]">{description}</p>
       </div>
     </div>
-  );
+  )
 }

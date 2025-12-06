@@ -1,7 +1,7 @@
-import ProjectCard from "@/components/ProjectCard";
-import ProjectTag from "@/components/ProjectTag";
-import { motion, useInView } from "framer-motion";
-import { useRef, useState } from "react";
+import ProjectCard from "@/components/ProjectCard"
+import ProjectTag from "@/components/ProjectTag"
+import { motion, useInView } from "framer-motion"
+import { useRef, useState } from "react"
 
 const projectsData = [
   {
@@ -58,20 +58,20 @@ const projectsData = [
     gitUrl: "https://github.com/dorukgezici/astro-decap-cms-oauth",
     previewUrl: "https://astro-decap-cms-oauth.vercel.app",
   },
-];
+]
 
 export default function ProjectsSection() {
-  const [tag, setTag] = useState<string>("All");
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
+  const [tag, setTag] = useState<string>("All")
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true })
 
-  const handleTagChange = (newTag: string) => setTag(newTag);
-  const filteredProjects = projectsData.filter((project) => project.tag.includes(tag));
+  const handleTagChange = (newTag: string) => setTag(newTag)
+  const filteredProjects = projectsData.filter((project) => project.tag.includes(tag))
 
   const cardVariants = {
     initial: { y: 50, opacity: 0 },
     animate: { y: 0, opacity: 1 },
-  };
+  }
 
   return (
     <section id="projects" className="flex flex-col justify-center items-center gap-8">
@@ -104,5 +104,5 @@ export default function ProjectsSection() {
         ))}
       </ul>
     </section>
-  );
+  )
 }

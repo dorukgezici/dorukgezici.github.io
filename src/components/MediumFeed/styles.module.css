@@ -5,13 +5,17 @@
 .card {
   padding: 2rem;
   border-radius: 0.5rem;
-  box-shadow: 0 -1px 3px var(--light), 0 -1px 3px var(--light) inset;
+  box-shadow:
+    0 -1px 3px var(--light),
+    0 -1px 3px var(--light) inset;
   perspective: 1000px;
   animation: card 1s ease-in-out;
 }
 
 .card:hover {
-  box-shadow: 0 -1px 5px var(--light), 0 -1px 5px var(--light) inset;
+  box-shadow:
+    0 -1px 5px var(--light),
+    0 -1px 5px var(--light) inset;
   transform: translateY(-3px) scale(1.01);
 }
 

@@ -347,11 +347,7 @@
             },
             "directURL": "",
             "id": "d962603e-9509-4dc1-afef-cdbf56142e13",
-            "tags": [
-              "Python",
-              "Django",
-              "Full Stack Web Development"
-            ],
+            "tags": ["Python", "Django", "Full Stack Web Development"],
             "title": "ITUscheduler",
             "spotlightButton": {
               "text": "View Website",
@@ -411,10 +407,7 @@
               "type": "iphone"
             },
             "notifyFeedbacks": true,
-            "tags": [
-              "iOS",
-              "Swift"
-            ],
+            "tags": ["iOS", "Swift"],
             "id": "f5af3c5c-0ef8-4f44-b4c2-94f71dc17b07",
             "icon": "https:\u002F\u002Fis4-ssl.mzstatic.com\u002Fimage\u002Fthumb\u002FPurple118\u002Fv4\u002Fac\u002F46\u002F36\u002Fac463679-16aa-11f7-1058-626e856838e6\u002Fsource\u002F60x60bb.jpg",
             "title": "IgniteGreenhouse",
@@ -503,10 +496,7 @@
           "type": "macbook"
         },
         "notifyFeedbacks": true,
-        "tags": [
-          "Guitar",
-          "Vocals"
-        ],
+        "tags": ["Guitar", "Vocals"],
         "icon": "https:\u002F\u002Ffirebasestorage.googleapis.com\u002Fv0\u002Fb\u002Fdevfolio-me.appspot.com\u002Fo\u002FImages%2FqsL9Cx4VFYOR6L3jAZu3IxZ2agW2%2Ff55948b3-bd5e-494f-a1cf-7e1c02a5c4f7?alt=media&token=16d5538c-60ea-4a1d-8bac-6e2aa9fd55dd",
         "title": "DGmusic",
         "spotlightButton": {
