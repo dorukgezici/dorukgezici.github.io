@@ -36,6 +36,10 @@
     "@types/react": "^19.2.7",
     "@types/react-dom": "^19.2.3"
   },
+  "packageManager": "pnpm@10.24.0",
+  "engines": {
+    "node": ">=20"
+  },
   "prettier": {
     "semi": false,
     "printWidth": 120,
