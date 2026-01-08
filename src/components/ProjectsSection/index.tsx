@@ -5,6 +5,15 @@ import { useRef, useState } from "react"
 
 const projectsData = [
   {
+    id: 0,
+    title: "POPJAM",
+    description: "Agentic marketing, ad generation and simulations",
+    image: "/img/projects/popjam-landing.jpeg",
+    tag: ["All", "Startup", "Web"],
+    gitUrl: "#projects",
+    previewUrl: "https://popjam.io",
+  },
+  {
     id: 1,
     title: "Subabot",
     description: "Slack bot to track keywords on RSS feeds",
