@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@astrojs/react": "^4.4.2",
-    "@astrojs/sitemap": "^3.6.0",
+    "@astrojs/sitemap": "^3.7.0",
     "@astrojs/vercel": "^8.2.11",
     "@fontsource/lato": "^5.2.7",
     "@fortawesome/fontawesome-svg-core": "^6.7.2",
@@ -21,22 +21,22 @@
     "@fortawesome/free-solid-svg-icons": "^6.7.2",
     "@fortawesome/react-fontawesome": "^0.2.6",
     "@vercel/analytics": "^1.6.1",
-    "astro": "^5.16.4",
+    "astro": "^5.16.11",
     "classnames": "^2.5.1",
-    "framer-motion": "^12.23.25",
-    "html-react-parser": "^5.2.10",
-    "react": "^19.2.1",
-    "react-dom": "^19.2.1",
+    "framer-motion": "^12.27.1",
+    "html-react-parser": "^5.2.11",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3",
     "react-type-animation": "^3.2.0",
     "rss-parser": "^3.13.0",
-    "tailwindcss": "^4.1.17"
+    "tailwindcss": "^4.1.18"
   },
   "devDependencies": {
-    "@tailwindcss/vite": "^4.1.17",
-    "@types/react": "^19.2.7",
+    "@tailwindcss/vite": "^4.1.18",
+    "@types/react": "^19.2.8",
     "@types/react-dom": "^19.2.3"
   },
-  "packageManager": "pnpm@10.24.0",
+  "packageManager": "pnpm@10.28.1",
   "engines": {
     "node": ">=20"
   },

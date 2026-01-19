@@ -1,0 +1,7 @@
+[
+  {
+    "label": "dev",
+    "command": "pnpm dev",
+    "reveal": "always",
+  },
+]

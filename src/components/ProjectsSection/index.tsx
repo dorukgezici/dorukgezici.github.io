@@ -10,60 +10,69 @@ const projectsData = [
     description: "Agentic marketing, ad generation and simulations",
     image: "/img/projects/popjam-landing.jpeg",
     tag: ["All", "Startup", "Web"],
-    gitUrl: "#projects",
+    gitUrl: null,
     previewUrl: "https://popjam.io",
   },
   {
     id: 1,
+    title: "SDG - Personal Site",
+    description: "Personal pixel-art website with an interactive touch",
+    image: "/img/projects/sdg.jpeg",
+    tag: ["All", "Web", "OSS"],
+    gitUrl: "https://github.com/dorukgezici/sinem.gezici.me",
+    previewUrl: "https://sinem.gezici.me",
+  },
+  {
+    id: 2,
     title: "Subabot",
     description: "Slack bot to track keywords on RSS feeds",
     image: "/img/projects/subabot.webp",
-    tag: ["All", "Bot", "Web"],
+    tag: ["All", "Bot", "Web", "OSS"],
     gitUrl: "https://github.com/dorukgezici/subabot",
     previewUrl: "https://subabot.gezici.me",
   },
   {
-    id: 2,
+    id: 3,
     title: "CryptoPatro",
     description: "Personal cryptoasset portfolio tracker and trading assistant bot",
     image: "/img/projects/cryptopatro.webp",
-    tag: ["All", "Bot", "Web"],
+    tag: ["All", "Bot", "Web", "OSS"],
     gitUrl: "https://github.com/dorukgezici/CryptoPatro",
     previewUrl: "#projects",
   },
   {
-    id: 3,
+    id: 4,
     title: "Yeşil Mavi Hayat",
     description: "A book promotion website",
     image: "/img/projects/yesilmavihayat.webp",
-    tag: ["All", "Web"],
+    tag: ["All", "Web", "OSS"],
     gitUrl: "https://github.com/dorukgezici/yesilmavihayat",
     previewUrl: "https://yesilmavihayat.com",
   },
   {
-    id: 4,
+    id: 5,
     title: "ITUscheduler",
     description: "Istanbul Technical University course crawler & scheduler",
     image: "/img/projects/ituscheduler.webp",
-    tag: ["All", "Web"],
+    tag: ["All", "Web", "OSS"],
     gitUrl: "https://github.com/dorukgezici/ituscheduler",
     previewUrl: "https://ituscheduler.com",
   },
   {
-    id: 5,
+    id: 6,
     title: "Gamer Arena",
     description: "Competitive Esports Platform",
     image: "/img/projects/gamerarena.webp",
     tag: ["All", "Startup"],
-    gitUrl: "#projects",
+    gitUrl: null,
     previewUrl: "https://gamerarena.com",
   },
   {
-    id: 6,
+    id: 7,
     title: "Astro DecapCMS OAuth Integration",
     description: "Astro integration for the Decap CMS with custom OAuth backend",
     image: "/img/projects/astro-decapcms-oauth.webp",
-    tag: ["All", "Library"],
+    tag: ["All", "Library", "OSS"],
     gitUrl: "https://github.com/dorukgezici/astro-decap-cms-oauth",
     previewUrl: "https://astro-decap-cms-oauth.vercel.app",
   },
@@ -91,8 +100,9 @@ export default function ProjectsSection() {
         <ProjectTag onClick={handleTagChange} name="Bot" isSelected={tag === "Bot"} />
         <ProjectTag onClick={handleTagChange} name="Startup" isSelected={tag === "Startup"} />
         <ProjectTag onClick={handleTagChange} name="Library" isSelected={tag === "Library"} />
+        <ProjectTag onClick={handleTagChange} name="OSS" isSelected={tag === "OSS"} />
       </div>
-      <ul ref={ref} className="grid lg:grid-cols-2 xl:grid-cols-3 gap-8 xl:gap-12">
+      <ul ref={ref} className="grid md:grid-cols-2 xl:grid-cols-3 gap-8 xl:gap-10 w-full px-8">
         {filteredProjects.map((project, index) => (
           <motion.li
             key={index}
