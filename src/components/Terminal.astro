@@ -1,0 +1,218 @@
+---
+const whois = [
+  { key: "", value: "% information related to 'doruk gezici'", cls: "text-muted" },
+  { key: "name", value: "Doruk Gezici" },
+  { key: "role", value: "Founder, POPJAM.IO" },
+  { key: "prev", value: "Dema · Udext · Gamer Arena" },
+  { key: "org", value: "Türkiye Girişimcilik Vakfı · Alumni" },
+  { key: "base", value: "Stockholm ⇄ Istanbul" },
+  { key: "stack", value: "Python · TypeScript · FastAPI · Astro · K8s" },
+  { key: "interests", value: "agents, automation, guitars" },
+  { key: "status", value: "shipping", cls: "text-phosphor" },
+]
+---
+
+<div class="overflow-hidden rounded-lg border border-line bg-ink-2 font-mono text-[13px] leading-relaxed sm:text-sm">
+  <div class="flex items-center gap-2 border-b border-line px-4 py-2.5">
+    <span class="size-2.5 rounded-full bg-[#ff5f57]" aria-hidden="true"></span>
+    <span class="size-2.5 rounded-full bg-[#febc2e]" aria-hidden="true"></span>
+    <span class="size-2.5 rounded-full bg-[#28c840]" aria-hidden="true"></span>
+    <span class="ml-2 text-xs text-muted">doruk@gezici.me · zsh</span>
+  </div>
+
+  <div id="term-body" class="h-105 overflow-y-auto px-4 py-3 sm:h-115">
+    <div id="term-output" aria-live="polite">
+      <div class="term-line">
+        <span class="text-phosphor">doruk@gezici</span><span class="text-muted">:~$</span>
+        <span class="text-fog">whois doruk</span>
+      </div>
+      {
+        whois.map((row) => (
+          <div class:list={["term-line whitespace-pre-wrap", row.cls ?? "text-fog"]}>
+            {row.key ? (
+              <>
+                <span class="text-amber">{row.key.padEnd(11)}</span>
+                {row.value}
+              </>
+            ) : (
+              row.value
+            )}
+          </div>
+        ))
+      }
+      <div class="term-line text-muted">% type `help` for commands, this prompt is real</div>
+    </div>
+
+    <form id="term-form" hidden class="mt-1 flex items-center gap-2" autocomplete="off">
+      <label for="term-input" class="sr-only">Type a terminal command</label>
+      <span aria-hidden="true"><span class="text-phosphor">doruk@gezici</span><span class="text-muted">:~$</span></span>
+      <input
+        id="term-input"
+        name="command"
+        class="min-w-0 flex-1 bg-transparent text-fog caret-amber outline-none placeholder:text-muted/50"
+        spellcheck="false"
+        autocapitalize="off"
+        placeholder="help"
+      />
+    </form>
+    <noscript>
+      <div class="term-line mt-1 text-muted">% interactive prompt needs JavaScript, everything else works fine</div>
+    </noscript>
+  </div>
+
+  <div class="flex flex-wrap items-center gap-2 border-t border-line px-4 py-2.5 text-xs">
+    <span class="text-muted">try:</span>
+    {
+      ["popjam", "whois", "projects", "contact", "help"].map((cmd) => (
+        <button
+          type="button"
+          data-term-cmd={cmd}
+          class="border border-line px-2 py-1 text-muted transition-colors hover:border-amber hover:text-amber"
+        >
+          {cmd}
+        </button>
+      ))
+    }
+  </div>
+</div>
+
+<script>
+  const output = document.getElementById("term-output")!
+  const body = document.getElementById("term-body")!
+  const form = document.getElementById("term-form") as HTMLFormElement
+  const input = document.getElementById("term-input") as HTMLInputElement
+
+  const motionOk = window.matchMedia("(prefers-reduced-motion: no-preference)").matches
+  const bootLines = Array.from(output.children).map((el) => el.cloneNode(true) as HTMLElement)
+  const PROMPT = `<span class="text-phosphor">doruk@gezici</span><span class="text-muted">:~$</span> `
+
+  const escapeHtml = (value: string) =>
+    value.replace(/[&<>"']/g, (c) => `&#${c.charCodeAt(0)};`)
+
+  const scrollDown = () => {
+    body.scrollTop = body.scrollHeight
+  }
+
+  const print = (html: string, cls = "text-fog") => {
+    const line = document.createElement("div")
+    line.className = `term-line whitespace-pre-wrap ${cls}`
+    line.innerHTML = html
+    output.appendChild(line)
+    scrollDown()
+  }
+
+  const link = (href: string, label: string) =>
+    `<a class="text-amber underline underline-offset-4 hover:text-fog" href="${href}"${
+      href.startsWith("#") ? "" : ' target="_blank" rel="noopener"'
+    }>${label}</a>`
+
+  const jump = (id: string, label: string) => {
+    print(`→ jumping to ${link(`#${id}`, `./${label}`)}`, "text-muted")
+    document.getElementById(id)?.scrollIntoView({ behavior: motionOk ? "smooth" : "auto" })
+  }
+
+  const commands: Record<string, () => void> = {
+    help: () => {
+      print("available commands:", "text-muted")
+      print(`  <span class="text-amber">whois</span>      who is this guy`)
+      print(`  <span class="text-amber">popjam</span>     what I'm building now`)
+      print(`  <span class="text-amber">girvak</span>     the foundation I'm an alumni of`)
+      print(`  <span class="text-amber">projects</span>   the index of shipped things`)
+      print(`  <span class="text-amber">music</span>      jams, not ads`)
+      print(`  <span class="text-amber">writing</span>    notes on Medium`)
+      print(`  <span class="text-amber">contact</span>    email, calendar, socials`)
+      print(`  <span class="text-amber">clear</span>      wipe the screen`)
+    },
+    whois: () => {
+      bootLines.slice(1).forEach((line) => output.appendChild(line.cloneNode(true)))
+      scrollDown()
+    },
+    popjam: () => {
+      print("POPJAM.IO: AI ad maker with built-in testing", "text-amber")
+      print("generates platform-native creatives for Meta, Google, TikTok, LinkedIn & Reddit,")
+      print("then simulates how AI personas react, before you spend a dollar.")
+      print("500 free credits, no credit card.", "text-phosphor")
+      print(`→ ${link("https://popjam.io", "popjam.io")}`, "text-muted")
+    },
+    girvak: () => {
+      print("Türkiye Girişimcilik Vakfı (Entrepreneurship Foundation of Türkiye)", "text-amber")
+      print("a fellowship backing Türkiye's next generation of founders. Fellow, now Alumni.")
+      print(`→ ${link("https://www.girisimcilikvakfi.org/", "girisimcilikvakfi.org")}`, "text-muted")
+    },
+    projects: () => jump("projects", "projects"),
+    music: () => jump("music", "music"),
+    writing: () => jump("writing", "writing"),
+    contact: () => {
+      print(`email     ${link("mailto:doruk@gezici.me", "doruk@gezici.me")}`)
+      print(`calendar  ${link("https://cal.com/dorukgezici", "cal.com/dorukgezici")}`)
+      print(`github    ${link("https://github.com/dorukgezici", "github.com/dorukgezici")}`)
+      print(`linkedin  ${link("https://linkedin.com/in/dorukgezici", "linkedin.com/in/dorukgezici")}`)
+    },
+    clear: () => {
+      output.innerHTML = ""
+    },
+    sudo: () => {
+      print("doruk is not in the sudoers file. this incident will be reported.", "text-muted")
+      print("(kidding, you already have my full attention)", "text-muted")
+    },
+  }
+
+  const run = (raw: string) => {
+    const cmd = raw.trim().toLowerCase()
+    if (!cmd) return
+    print(PROMPT + escapeHtml(cmd))
+    const handler = commands[cmd.split(" ")[0]]
+    if (handler) handler()
+    else print(`command not found: ${escapeHtml(cmd)}, try \`help\``, "text-muted")
+  }
+
+  form.addEventListener("submit", (event) => {
+    event.preventDefault()
+    run(input.value)
+    input.value = ""
+  })
+
+  document.querySelectorAll<HTMLButtonElement>("[data-term-cmd]").forEach((button) =>
+    button.addEventListener("click", () => {
+      run(button.dataset.termCmd!)
+      input.focus({ preventScroll: true })
+    }),
+  )
+
+  body.addEventListener("click", (event) => {
+    if (!(event.target as HTMLElement).closest("a")) input.focus({ preventScroll: true })
+  })
+
+  const enablePrompt = () => {
+    form.hidden = false
+  }
+
+  const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms))
+
+  const boot = async () => {
+    if (!motionOk) {
+      enablePrompt()
+      return
+    }
+    output.innerHTML = ""
+    const typed = document.createElement("div")
+    typed.className = "term-line"
+    typed.innerHTML = `${PROMPT}<span id="term-typed" class="text-fog"></span><span class="term-caret" aria-hidden="true"></span>`
+    output.appendChild(typed)
+    const target = typed.querySelector("#term-typed")!
+    for (const char of "whois doruk") {
+      target.textContent += char
+      await sleep(65)
+    }
+    await sleep(350)
+    typed.querySelector(".term-caret")?.remove()
+    for (const line of bootLines.slice(1)) {
+      output.appendChild(line)
+      scrollDown()
+      await sleep(70)
+    }
+    enablePrompt()
+  }
+
+  boot()
+</script>

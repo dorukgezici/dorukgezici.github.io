@@ -1,0 +1,114 @@
+---
+const commits = [
+  {
+    hash: "a9f3e21",
+    ref: "HEAD -> now, tag: 2025",
+    text: "found POPJAM.IO: agentic ad creation, synthetic persona testing",
+    url: "https://popjam.io",
+  },
+  {
+    hash: "8f40d12",
+    ref: "tag: 2023..24",
+    text: "start and lead Dema's Platform Integration team: ETL pipelines, a Shopify app, faster onboardings",
+    url: "https://dema.ai",
+  },
+  {
+    hash: "6b7e9a1",
+    ref: "tag: 2022..23",
+    text: "co-found Udext (CTO): frontline workforce messaging and automation",
+    url: null,
+  },
+  {
+    hash: "3e8fa90",
+    ref: "tag: 2018..21",
+    text: "co-found Gamer Arena (CEO): competitive esports platform for the MENA region",
+    url: "https://gamerarena.com",
+  },
+  {
+    hash: "7c1d0b4",
+    ref: "tag: 2018",
+    text: "join Türkiye Girişimcilik Vakfı fellowship, stay on as alumni",
+    url: "https://www.girisimcilikvakfi.org/",
+  },
+  {
+    hash: "d24c77b",
+    ref: "tag: campus",
+    text: "ship ITUscheduler: course scheduler for Istanbul Technical University",
+    url: "https://ituscheduler.com",
+  },
+  {
+    hash: "0b1afe3",
+    ref: "",
+    text: "initial commit: a curious kid, a guitar, and a terminal",
+    url: null,
+  },
+]
+
+const repos = [
+  { name: "astro-decap-cms-oauth", stars: 77, url: "https://github.com/dorukgezici/astro-decap-cms-oauth" },
+  { name: "k3s-oci-always-free", stars: 30, url: "https://github.com/dorukgezici/k3s-oci-always-free" },
+  { name: "ituscheduler", stars: 14, url: "https://github.com/dorukgezici/ituscheduler" },
+  { name: "subabot", stars: 11, url: "https://github.com/dorukgezici/subabot" },
+  { name: "pydantic-ai-mlx", stars: 9, url: "https://github.com/dorukgezici/pydantic-ai-mlx" },
+]
+---
+
+<section id="track" class="scroll-mt-16 border-t border-line">
+  <div class="mx-auto max-w-6xl px-5 py-24">
+    <p class="reveal mb-4 font-mono text-sm text-muted">// 02 · track record</p>
+    <h2 class="reveal max-w-3xl text-4xl font-bold tracking-tight text-fog sm:text-5xl">
+      A decade of shipping: three startups, a fellowship, and a pile of open source.
+    </h2>
+
+    <div class="reveal mt-12 overflow-x-auto rounded-lg border border-line bg-ink-2 p-5 font-mono text-sm leading-loose">
+      <p><span class="text-phosphor">doruk@gezici</span><span class="text-muted">:~$</span> git log --oneline career</p>
+      {
+        commits.map((commit) => (
+          <p class="whitespace-nowrap">
+            <span class="text-amber">{commit.hash}</span>
+            {commit.ref && <span class="text-phosphor"> ({commit.ref})</span>}{" "}
+            {commit.url ? (
+              <a
+                href={commit.url}
+                target="_blank"
+                rel="noopener"
+                class="text-fog underline decoration-line underline-offset-4 transition-colors hover:text-amber hover:decoration-amber"
+              >
+                {commit.text}
+              </a>
+            ) : (
+              <span class="text-fog">{commit.text}</span>
+            )}
+          </p>
+        ))
+      }
+    </div>
+
+    <div class="reveal mt-10">
+      <p class="mb-4 font-mono text-sm text-muted">
+        open source, verifiable on <a
+          href="https://github.com/dorukgezici"
+          target="_blank"
+          rel="noopener"
+          class="text-fog underline decoration-line underline-offset-4 hover:text-amber">github/dorukgezici</a
+        >: 57 public repos, including:
+      </p>
+      <ul class="flex flex-wrap gap-3 font-mono text-sm">
+        {
+          repos.map((repo) => (
+            <li>
+              <a
+                href={repo.url}
+                target="_blank"
+                rel="noopener"
+                class="inline-block border border-line px-3 py-2 text-muted transition-colors hover:border-amber hover:text-amber"
+              >
+                {repo.name} <span class="text-amber">★ {repo.stars}</span>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</section>

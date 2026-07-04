@@ -1,0 +1,30 @@
+---
+const socials = [
+  { label: "github", url: "https://github.com/dorukgezici" },
+  { label: "linkedin", url: "https://linkedin.com/in/dorukgezici" },
+  { label: "x", url: "https://twitter.com/derektraveller" },
+  { label: "instagram", url: "https://instagram.com/dorukgezici" },
+  { label: "substack", url: "https://dorukgezici.substack.com" },
+  { label: "medium", url: "https://dorukgezici.medium.com" },
+  { label: "soundcloud", url: "https://soundcloud.com/dorukgezici" },
+]
+---
+
+<footer class="border-t border-line">
+  <div
+    class="mx-auto flex max-w-6xl flex-col items-start justify-between gap-6 px-5 py-10 font-mono text-sm text-muted sm:flex-row sm:items-center"
+  >
+    <p>© 2026 Doruk Gezici · Stockholm ⇄ Istanbul</p>
+    <ul class="flex flex-wrap gap-x-5 gap-y-2">
+      {
+        socials.map((social) => (
+          <li>
+            <a href={social.url} target="_blank" rel="noopener" class="transition-colors hover:text-amber">
+              {social.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</footer>

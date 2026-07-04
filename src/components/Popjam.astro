@@ -1,0 +1,129 @@
+---
+const VIDEO_ID = "ZbRgT-9v07U"
+const VIDEO_URL = `https://www.youtube.com/watch?v=${VIDEO_ID}`
+
+const steps = [
+  {
+    cmd: "generate",
+    text: "AI agents create platform-native creatives for Meta, Google, TikTok, LinkedIn and Reddit: images, video, and animation, on-brand from your own research.",
+  },
+  {
+    cmd: "simulate",
+    text: "Synthetic personas built from brand, industry and competitor research react to every creative. No real customer data needed, GDPR-safe by design.",
+  },
+  {
+    cmd: "iterate",
+    text: "A/B test hooks, angles and headlines against the panel, fix weak spots, and launch only the validated winners.",
+  },
+]
+---
+
+<section id="popjam" class="scroll-mt-16 bg-paper text-paper-ink">
+  <div class="mx-auto max-w-6xl px-5 py-24">
+    <p class="reveal mb-4 font-mono text-sm text-paper-muted">// 01 · now building</p>
+    <h2 class="reveal max-w-3xl text-4xl font-bold tracking-tight sm:text-5xl">
+      POPJAM tests your ads on AI personas, before you spend a dollar.
+    </h2>
+    <p class="reveal mt-6 max-w-2xl text-lg text-paper-muted">
+      Most ad budgets pay a tax called the learning phase: real money spent finding out a creative doesn't work.
+      POPJAM moves that guesswork onto silicon.
+    </p>
+
+    <div class="mt-14 grid gap-10 lg:grid-cols-[1fr_1.1fr] lg:items-center">
+      <div class="flex flex-col gap-8">
+        {
+          steps.map((step, index) => (
+            <div class="reveal border-l-2 border-paper-line pl-5">
+              <h3 class="font-mono text-base font-medium">
+                <span class="text-paper-muted">0{index + 1} $</span> popjam {step.cmd}
+              </h3>
+              <p class="mt-2 text-paper-muted">{step.text}</p>
+            </div>
+          ))
+        }
+        <blockquote class="reveal border-l-2 border-paper-ink pl-5 text-lg">
+          "I built POPJAM because the learning phase is a tax on every campaign. Now the guesswork runs on silicon,
+          not budget."
+          <footer class="mt-2 font-mono text-sm text-paper-muted">Doruk, founder</footer>
+        </blockquote>
+      </div>
+
+      <figure class="reveal">
+        <div class="overflow-hidden rounded-lg border border-paper-line shadow-[0_20px_60px_-24px_rgba(26,23,18,0.35)]">
+          <div class="flex items-center gap-1.5 border-b border-paper-line bg-white/60 px-3 py-2">
+            <span class="size-2 rounded-full bg-paper-line" aria-hidden="true"></span>
+            <span class="size-2 rounded-full bg-paper-line" aria-hidden="true"></span>
+            <span class="size-2 rounded-full bg-paper-line" aria-hidden="true"></span>
+            <span class="ml-2 font-mono text-xs text-paper-muted">popjam.io · demo</span>
+          </div>
+          <div id="popjam-video" class="relative aspect-video bg-paper-ink">
+            <a
+              id="popjam-play"
+              href={VIDEO_URL}
+              target="_blank"
+              rel="noopener"
+              aria-label="Play the POPJAM demo video"
+              class="group/play absolute inset-0 flex items-center justify-center"
+            >
+              <img
+                src={`https://i.ytimg.com/vi/${VIDEO_ID}/hqdefault.jpg`}
+                alt="Preview frame of the POPJAM demo video"
+                width="480"
+                height="360"
+                loading="lazy"
+                decoding="async"
+                class="absolute inset-0 h-full w-full object-cover"
+              />
+              <span
+                class="relative z-10 flex size-16 items-center justify-center rounded-full bg-paper-ink/85 transition-transform group-hover/play:scale-110"
+              >
+                <svg width="22" height="26" viewBox="0 0 22 26" fill="#efe8dd" aria-hidden="true">
+                  <path d="M0 0 L22 13 L0 26 Z"></path>
+                </svg>
+              </span>
+            </a>
+          </div>
+        </div>
+        <figcaption class="mt-3 font-mono text-xs text-paper-muted">
+          watch POPJAM generate, simulate and iterate on a real campaign
+        </figcaption>
+      </figure>
+    </div>
+
+    <div class="reveal mt-14 flex flex-wrap items-center gap-4 font-mono text-sm">
+      <a
+        href="https://popjam.io"
+        target="_blank"
+        rel="noopener"
+        class="bg-paper-ink px-6 py-3 font-medium text-paper transition-transform hover:-translate-y-0.5"
+      >
+        Try POPJAM free →
+      </a>
+      <a
+        href="https://popjam.io/gallery"
+        target="_blank"
+        rel="noopener"
+        class="border border-paper-ink px-6 py-3 transition-colors hover:bg-paper-ink hover:text-paper"
+      >
+        browse real campaigns
+      </a>
+      <span class="text-paper-muted">500 free credits · no credit card · GDPR-safe</span>
+    </div>
+  </div>
+</section>
+
+<script>
+  const play = document.getElementById("popjam-play")
+  const wrap = document.getElementById("popjam-video")
+
+  play?.addEventListener("click", (event) => {
+    event.preventDefault()
+    const iframe = document.createElement("iframe")
+    iframe.src = "https://www.youtube-nocookie.com/embed/ZbRgT-9v07U?autoplay=1&rel=0"
+    iframe.title = "POPJAM demo video"
+    iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    iframe.allowFullscreen = true
+    iframe.className = "absolute inset-0 h-full w-full border-0"
+    wrap?.replaceChildren(iframe)
+  })
+</script>

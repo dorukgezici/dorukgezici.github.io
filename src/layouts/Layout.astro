@@ -1,50 +1,138 @@
 ---
-import "@fontsource/lato";
-import "@fortawesome/fontawesome-svg-core/styles.css";
-import "@/styles/global.css";
+import "@fontsource-variable/space-grotesk"
+import "@fontsource-variable/jetbrains-mono"
+import "@/styles/global.css"
 
-import Analytics from "@vercel/analytics/astro";
+import spaceGroteskUrl from "@fontsource-variable/space-grotesk/files/space-grotesk-latin-wght-normal.woff2?url"
+import jetbrainsMonoUrl from "@fontsource-variable/jetbrains-mono/files/jetbrains-mono-latin-wght-normal.woff2?url"
+
+import Analytics from "@vercel/analytics/astro"
 
 interface Props {
-  title: string;
+  title: string
+  description: string
 }
 
-const { title } = Astro.props;
+const { title, description } = Astro.props
+const canonical = new URL(Astro.url.pathname, Astro.site)
+const ogImage = new URL("/img/dg-pp.jpg", Astro.site)
+
+const jsonLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Doruk Gezici",
+  url: "https://doruk.gezici.me",
+  image: ogImage.href,
+  jobTitle: "Founder",
+  worksFor: {
+    "@type": "Organization",
+    name: "POPJAM.IO",
+    url: "https://popjam.io",
+  },
+  alumniOf: [
+    {
+      "@type": "Organization",
+      name: "Türkiye Girişimcilik Vakfı",
+      url: "https://www.girisimcilikvakfi.org/",
+    },
+    {
+      "@type": "CollegeOrUniversity",
+      name: "Istanbul Technical University",
+      url: "https://www.itu.edu.tr/",
+    },
+  ],
+  email: "mailto:doruk@gezici.me",
+  sameAs: [
+    "https://github.com/dorukgezici",
+    "https://linkedin.com/in/dorukgezici",
+    "https://twitter.com/derektraveller",
+    "https://instagram.com/dorukgezici",
+    "https://dorukgezici.substack.com",
+    "https://dorukgezici.medium.com",
+    "https://soundcloud.com/dorukgezici",
+  ],
+})
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="description"
-      content="Check out the portfolio of Doruk Gezici, Full Stack Developer & Entrepreneur."
-    />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
-    <Analytics/>
+    <meta name="theme-color" content="#0b0e14" />
+    <link rel="preload" href={spaceGroteskUrl} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={jetbrainsMonoUrl} as="font" type="font/woff2" crossorigin />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:site_name" content="Doruk Gezici" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:creator" content="@derektraveller" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <script type="application/ld+json" set:html={jsonLd} />
+    <script is:inline>
+      document.documentElement.classList.add("js")
+    </script>
+    <Analytics />
   </head>
-  <body class="text-neutral-400 bg-neutral-900">
+  <body class="bg-ink text-fog">
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:bg-amber focus:text-ink focus:px-4 focus:py-2 focus:font-mono focus:text-sm"
+    >
+      Skip to content
+    </a>
     <slot />
-    <footer class="flex justify-center my-10">© 2026 | DGtech - Doruk Gezici</footer>
 
     <!-- Google Tag Manager -->
-    {process.env.NODE_ENV === "production" && (
-      <script async id="google-tag-manager">
-        (function (w, d, s, l, i) {
-          w[l] = w[l] || [];
-          w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
-          var f = d.getElementsByTagName(s)[0],
-            j = d.createElement(s),
-            dl = l != "dataLayer" ? "&l=" + l : "";
-          j.async = true;
-          j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
-          f.parentNode.insertBefore(j, f);
-        })(window, document, "script", "dataLayer", "GTM-5J976B");
-      </script>
-    )}
+    {
+      process.env.NODE_ENV === "production" && (
+        <script async is:inline id="google-tag-manager">
+          {`(function (w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+            var f = d.getElementsByTagName(s)[0],
+              j = d.createElement(s),
+              dl = l != "dataLayer" ? "&l=" + l : "";
+            j.async = true;
+            j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+            f.parentNode.insertBefore(j, f);
+          })(window, document, "script", "dataLayer", "GTM-5J976B");`}
+        </script>
+      )
+    }
+
+    <script>
+      const motionOk = window.matchMedia("(prefers-reduced-motion: no-preference)").matches
+      const targets = document.querySelectorAll<HTMLElement>(".reveal")
+      if (motionOk && "IntersectionObserver" in window) {
+        const io = new IntersectionObserver(
+          (entries) => {
+            for (const entry of entries) {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("is-in")
+                io.unobserve(entry.target)
+              }
+            }
+          },
+          { threshold: 0.12 },
+        )
+        targets.forEach((el) => io.observe(el))
+      } else {
+        targets.forEach((el) => el.classList.add("is-in"))
+      }
+    </script>
   </body>
 </html>

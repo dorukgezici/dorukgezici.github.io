@@ -1,0 +1,92 @@
+---
+import { projects } from "@/data/projects"
+---
+
+<section id="projects" class="relative scroll-mt-16 border-t border-line">
+  <div class="mx-auto max-w-6xl px-5 py-24">
+    <p class="reveal mb-4 font-mono text-sm text-muted">// 03 · index</p>
+    <h2 class="reveal max-w-3xl text-4xl font-bold tracking-tight text-fog sm:text-5xl">
+      Eight things I shipped and still like.
+    </h2>
+
+    <ul id="project-index" class="mt-12 border-t border-line">
+      {
+        projects.map((project, index) => (
+          <li
+            class="reveal group grid grid-cols-[auto_1fr] items-baseline gap-x-5 gap-y-2 border-b border-line py-6 transition-colors hover:bg-ink-2 sm:grid-cols-[auto_1.2fr_1fr_auto] sm:items-center"
+            data-project-image={project.image}
+          >
+            <span class="font-mono text-sm text-muted">0{index + 1}</span>
+            <div>
+              <h3 class="text-xl font-medium text-fog transition-colors group-hover:text-amber sm:text-2xl">
+                {project.title}
+              </h3>
+              <p class="mt-1 text-sm text-muted sm:hidden">{project.description}</p>
+            </div>
+            <p class="col-start-2 hidden text-sm text-muted sm:col-auto sm:block">{project.description}</p>
+            <div class="col-start-2 flex items-center gap-4 font-mono text-sm sm:col-auto sm:justify-end">
+              <span class="hidden text-muted lg:inline">{project.tags.map((tag) => `#${tag}`).join(" ")}</span>
+              {project.liveUrl && (
+                <a
+                  href={project.liveUrl}
+                  target="_blank"
+                  rel="noopener"
+                  class="text-fog underline decoration-line underline-offset-4 transition-colors hover:text-amber hover:decoration-amber"
+                >
+                  live ↗
+                </a>
+              )}
+              {project.gitUrl && (
+                <a
+                  href={project.gitUrl}
+                  target="_blank"
+                  rel="noopener"
+                  class="text-fog underline decoration-line underline-offset-4 transition-colors hover:text-amber hover:decoration-amber"
+                >
+                  source ↗
+                </a>
+              )}
+            </div>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+
+  <img
+    id="project-preview"
+    src={projects[0].image}
+    alt=""
+    width="488"
+    height="288"
+    loading="lazy"
+    decoding="async"
+    aria-hidden="true"
+    class="pointer-events-none fixed top-0 left-0 z-30 hidden w-80 rounded-md border border-line object-cover shadow-2xl"
+  />
+</section>
+
+<script>
+  const preview = document.getElementById("project-preview") as HTMLImageElement
+  const rows = document.querySelectorAll<HTMLElement>("[data-project-image]")
+  const fancy =
+    window.matchMedia("(pointer: fine)").matches && window.matchMedia("(prefers-reduced-motion: no-preference)").matches
+
+  if (fancy) {
+    let raf = 0
+    const move = (event: MouseEvent) => {
+      cancelAnimationFrame(raf)
+      raf = requestAnimationFrame(() => {
+        preview.style.transform = `translate(${event.clientX + 24}px, ${Math.min(event.clientY - 90, window.innerHeight - 220)}px)`
+      })
+    }
+    rows.forEach((row) => {
+      row.addEventListener("mouseenter", () => {
+        preview.src = row.dataset.projectImage!
+        preview.classList.remove("hidden")
+      })
+      row.addEventListener("mouseleave", () => preview.classList.add("hidden"))
+      row.addEventListener("mousemove", move)
+    })
+  }
+</script>

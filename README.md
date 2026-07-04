@@ -1,47 +1,34 @@
-# Astro Starter Kit: Minimal
+# doruk.gezici.me
+
+Personal site of Doruk Gezici, founder of [POPJAM.IO](https://popjam.io). A terminal-editorial landing page: the hero is a live terminal that answers `whois doruk` and takes real commands.
+
+Live at [doruk.gezici.me](https://doruk.gezici.me).
+
+## Stack
+
+- [Astro 7](https://astro.build) (static output, zero JS frameworks, vanilla script islands)
+- [Tailwind CSS 4](https://tailwindcss.com) (CSS-first config in `src/styles/global.css`)
+- Space Grotesk + JetBrains Mono via Fontsource
+- Deployed on Vercel
+
+## Structure
 
 ```
-npm create astro@latest -- --template minimal
+src/
+├── components/    page sections (Nav, Hero, Terminal, Popjam, TrackRecord, Projects, Music, Writing, Contact, Footer)
+├── data/          project index + cached Medium RSS fallback
+├── layouts/       Layout.astro (SEO, OG, JSON-LD, analytics)
+├── pages/         index.astro
+└── styles/        global.css (theme tokens, reveals)
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/minimal)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/minimal)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/minimal/devcontainer.json)
+The Writing section fetches the Medium feed at build time and falls back to the cached XML in `src/data/` if Medium is unreachable.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Commands
 
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
-
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:3000`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+| Command        | Action                       |
+| :------------- | :--------------------------- |
+| `pnpm install` | Install dependencies         |
+| `pnpm dev`     | Dev server at localhost:4321 |
+| `pnpm build`   | Production build to `dist/`  |
+| `pnpm preview` | Preview the build            |

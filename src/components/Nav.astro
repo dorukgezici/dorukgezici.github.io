@@ -1,0 +1,88 @@
+---
+const links = [
+  { href: "#popjam", label: "popjam" },
+  { href: "#track", label: "track-record" },
+  { href: "#projects", label: "projects" },
+  { href: "#music", label: "music" },
+  { href: "#writing", label: "writing" },
+  { href: "#contact", label: "contact" },
+]
+---
+
+<header class="fixed inset-x-0 top-0 z-40 border-b border-line bg-ink/85 backdrop-blur">
+  <nav aria-label="Main" class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-3 font-mono text-sm">
+    <a href="#top" class="text-fog hover:text-amber transition-colors whitespace-nowrap">
+      <span class="text-amber">~</span>/doruk
+    </a>
+
+    <ul class="hidden items-center gap-6 md:flex">
+      {
+        links.map((link) => (
+          <li>
+            <a href={link.href} class="text-muted transition-colors hover:text-amber">
+              ./{link.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+
+    <div class="flex items-center gap-3">
+      <a
+        href="https://popjam.io"
+        target="_blank"
+        rel="noopener"
+        class="hidden sm:inline-block border border-amber px-3 py-1.5 text-amber transition-colors hover:bg-amber hover:text-ink"
+      >
+        POPJAM ↗
+      </a>
+      <button
+        id="nav-toggle"
+        type="button"
+        class="md:hidden border border-line px-3 py-1.5 text-fog transition-colors hover:border-amber hover:text-amber"
+        aria-expanded="false"
+        aria-controls="nav-menu"
+      >
+        menu
+      </button>
+    </div>
+  </nav>
+
+  <div id="nav-menu" hidden class="border-t border-line md:hidden">
+    <ul class="mx-auto max-w-6xl px-5 py-4 font-mono text-base">
+      {
+        links.map((link) => (
+          <li>
+            <a href={link.href} class="block py-2 text-muted transition-colors hover:text-amber" data-nav-link>
+              ./{link.label}
+            </a>
+          </li>
+        ))
+      }
+      <li>
+        <a
+          href="https://popjam.io"
+          target="_blank"
+          rel="noopener"
+          class="mt-2 inline-block border border-amber px-3 py-1.5 text-amber"
+        >
+          POPJAM ↗
+        </a>
+      </li>
+    </ul>
+  </div>
+</header>
+
+<script>
+  const toggle = document.getElementById("nav-toggle")!
+  const menu = document.getElementById("nav-menu")!
+
+  const setOpen = (open: boolean) => {
+    toggle.setAttribute("aria-expanded", String(open))
+    toggle.textContent = open ? "close" : "menu"
+    menu.hidden = !open
+  }
+
+  toggle.addEventListener("click", () => setOpen(menu.hidden))
+  menu.querySelectorAll("[data-nav-link]").forEach((link) => link.addEventListener("click", () => setOpen(false)))
+</script>

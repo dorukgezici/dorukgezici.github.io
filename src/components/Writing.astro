@@ -1,0 +1,90 @@
+---
+import Parser from "rss-parser"
+import fallbackXml from "@/data/dorukgezici.medium.com_feed.xml?raw"
+
+interface Post {
+  title: string
+  link: string
+  date: Date
+  source: "substack" | "medium"
+}
+
+const parser = new Parser({ timeout: 10000 })
+
+const loadFeed = async (url: string, source: Post["source"], fallback?: string): Promise<Post[]> => {
+  let items
+  try {
+    items = (await parser.parseURL(url)).items
+  } catch {
+    if (!fallback) return []
+    items = (await parser.parseString(fallback)).items
+  }
+  return (items ?? [])
+    .filter((item) => item.title && item.link)
+    .map((item) => ({
+      title: item.title!,
+      link: item.link!.split("?")[0],
+      date: item.pubDate ? new Date(item.pubDate) : new Date(0),
+      source,
+    }))
+}
+
+const [substack, medium] = await Promise.all([
+  loadFeed("https://dorukgezici.substack.com/feed", "substack"),
+  loadFeed("https://dorukgezici.medium.com/feed", "medium", fallbackXml),
+])
+
+const seen = new Set<string>()
+const posts = [...substack, ...medium]
+  .sort((a, b) => b.date.getTime() - a.date.getTime())
+  .filter((post) => {
+    const key = post.title.trim().toLowerCase()
+    if (seen.has(key)) return false
+    seen.add(key)
+    return true
+  })
+  .slice(0, 6)
+
+const formatDate = (date: Date) =>
+  date.getTime() > 0 ? date.toLocaleDateString("en-US", { year: "numeric", month: "short" }) : ""
+---
+
+<section id="writing" class="scroll-mt-16 border-t border-line">
+  <div class="mx-auto max-w-6xl px-5 py-24">
+    <p class="reveal mb-4 font-mono text-sm text-muted">// 05 · writing</p>
+    <h2 class="reveal max-w-3xl text-4xl font-bold tracking-tight text-fog sm:text-5xl">Notes from the build log.</h2>
+
+    <ul class="mt-12 border-t border-line">
+      {
+        posts.map((post) => (
+          <li class="reveal border-b border-line">
+            <a
+              href={post.link}
+              target="_blank"
+              rel="noopener"
+              class="group flex flex-wrap items-baseline justify-between gap-2 py-5 transition-colors hover:bg-ink-2"
+            >
+              <span class="text-lg text-fog transition-colors group-hover:text-amber">{post.title}</span>
+              <span class="font-mono text-sm text-muted">
+                {post.source} · {formatDate(post.date)} ↗
+              </span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+    <p class="reveal mt-4 font-mono text-sm text-muted">
+      newsletter on <a
+        href="https://dorukgezici.substack.com"
+        target="_blank"
+        rel="noopener"
+        class="text-fog underline decoration-line underline-offset-4 hover:text-amber">dorukgezici.substack.com</a
+      > · archive on <a
+        href="https://dorukgezici.medium.com"
+        target="_blank"
+        rel="noopener"
+        class="text-fog underline decoration-line underline-offset-4 hover:text-amber">dorukgezici.medium.com</a
+      >
+    </p>
+  </div>
+</section>
