@@ -24,7 +24,7 @@
   "devDependencies": {
     "@tailwindcss/vite": "^4.3.2"
   },
-  "packageManager": "pnpm@11.9.0",
+  "packageManager": "pnpm@12.8.1",
   "engines": {
     "node": ">=22.12.0"
   },
